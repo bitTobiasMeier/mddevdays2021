@@ -1,0 +1,19 @@
+{
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "composeLaunchServiceName": "platform",
+      "serviceActions": {
+        "dapr-placement": "StartWithoutDebugging",
+        "platform": "StartDebugging",
+        "platform-dapr": "StartWithoutDebugging",
+        "redis": "StartWithoutDebugging",
+        "restaurantservice": "StartDebugging",
+        "restaurantservice-dapr": "StartWithoutDebugging"
+      },
+      "composeLaunchAction": "LaunchBrowser",
+      "commandVersion": "1.0",
+      "composeLaunchUrl": "{Scheme}://localhost:{ServicePort}"
+    }
+  }
+}

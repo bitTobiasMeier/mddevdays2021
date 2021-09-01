@@ -1,0 +1,43 @@
+﻿@page
+@using RestaurantService.Interfaces
+@model IndexModel
+
+@{
+    var orderid = ViewData["orderid"];
+    ViewData["Title"] = "Home page";
+    var dish = (OrderData)ViewData["Dish"];
+}
+
+<div class="text-center">
+    <h1 class="display-4">Dinner Platform</h1>
+</div>
+<div class="card">
+    <div class="card-header">
+        Bestehende Bestellung
+    </div>
+    <div class="card-body">
+        <fieldset><legend>Gericht:</legend>@dish?.Dish</fieldset>
+        <fieldset><legend>Preis:</legend>@dish?.Price</fieldset>
+        <fieldset><legend>Bestellstatus:</legend>@dish?.State</fieldset>
+        <form asp-page-handler="refresh" method="post">
+            <fieldset><legend>Bestellnr</legend> <input type="text" name="orderid" value="@orderid"/></fieldset>
+            <button class="btn btn-primary">Status abfragen</button>
+        </form>
+    </div>
+
+</div>
+<div class="card">
+<div class="card">
+    <div class="card-header">
+        Neue Bestellung
+    </div>
+    <div class="card-body">
+
+        <form asp-page-handler="order" method="post">
+            <fieldset><legend>Bestellnr</legend> <input type="text" name="orderid" value="@orderid"/></fieldset>
+            <fieldset><legend>Gericht:</legend> <input type="text" name="dish"/></fieldset>
+            <fieldset><legend>Preis:</legend> <input type="number" name="price"/></fieldset>
+            <button class="btn btn-primary">Bestellen</button>
+        </form>
+    </div>
+</div>
