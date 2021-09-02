@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: restaurantserviceapp
+  labels:
+    app: restaurantservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: restaurantservice
+  template:
+    metadata:
+      labels:
+        app: restaurantservice
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "restaurantserviceapp"
+        dapr.io/app-port: "80"
+    spec:
+      containers:
+      - name: restaurantservice
+        image: mddevdays.azurecr.io/restaurantservice:latest
+        ports:
+        - containerPort: 80
+        imagePullPolicy: Always
+        

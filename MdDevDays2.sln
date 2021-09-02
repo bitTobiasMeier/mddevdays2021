@@ -13,7 +13,14 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{51D63ABA-A491-4975-8030-C286068D3B11}"
 	ProjectSection(SolutionItems) = preProject
-		dapr\components\redis.yaml = dapr\components\redis.yaml
+		dapr\components\statestore.yaml = dapr\components\statestore.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deploy", "deploy", "{FF359ED8-2690-4BB4-9B12-BD40B257726A}"
+	ProjectSection(SolutionItems) = preProject
+		deploy\platform.yaml = deploy\platform.yaml
+		deploy\redis.yaml = deploy\redis.yaml
+		deploy\restaurantservice.yaml = deploy\restaurantservice.yaml
 	EndProjectSection
 EndProject
 Global
